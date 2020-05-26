@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="login-page.css">
+    <script src="login-page.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Login</h3>
+        <p id="demo">json data</p>
+        <form action="/action_page.php">
+
+            <div>
+                <label for="usrname">Username</label>
+                <input type="text" id="txtUserName" name="username" required>
+
+                <label for="psw">Password</label>
+                <input type="password" id="txtPassword" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    required>
+            </div>
+            </br>
+            <div class="text-center">
+                <button type="button" class="btn btn-danger" value="" onClick="saveData()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

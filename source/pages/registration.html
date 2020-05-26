@@ -1,0 +1,103 @@
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="D:\Priyanka DT\Office\Task\Source\ChatApp\js\form-validation.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <form class="was-validated" name="frmRegistration">
+    <div class="form-group">
+      <label for="uname">Username:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Repeat Password:</label>
+        <input type="password" class="form-control" id="confrmpswd" placeholder="Repeat password" name="confrmpswd" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+    <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+  </form>
+</div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/registration.css" />
+    <script src="/registration.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Registration</h3>
+        <form action="/action_page.php" >
+
+            <div>
+                <label for="usrname">Username</label>
+                <input type="text" id="txtUserName" name="username" pattern=" /^[A-Z0-9a-z]{8,}$/" required>
+
+                <label for="usrname">Email</label>
+                <input type="text" id="txtEmailId" name="email"
+                    pattern="/^[0-9a-zA-Z]+([.+_-]?[0-9a-zA-Z]+)*([@][0-9a-zA-Z]+){1}([.][a-zA-Z]{2,3}){1,2}$/"
+                    required>
+
+                <label for="psw">Password</label>
+                <input type="password" id="txtPassword" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    required>
+                <label for="psw">Repeat Password</label>
+                <input type="password" id="txtRepeatPassword" name="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+            </div>
+            </br>
+            <div class="text-center">
+                <button type="button" class="btn btn-danger" value="" onclick="validation()">Register</button>
+            </div>
+            <div class="container signin">
+                <p>Already have an account? <a href="#">Sign in</a>.</p>
+            </div>
+            <div id="snackbar">Some text some message..</div>
+        </form>
+    </div>
+
+
+    <div class = "container" id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+      </div>
+              
+    <script>
+        
+        </script>
+        
+</body>
+
+</html>
