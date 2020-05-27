@@ -2,14 +2,17 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
+var qs = require('querystring');
 
 var server = http.createServer(function (request, response) {
-	var sourcePath ='D:\\Priyanka DT\\Office\\Task\\Source\\ChatApp\\source'; 
+	//File Path
+	var sourcePath = 'D:\\Priyanka DT\\Office\\Task\\Source\\ChatApp\\source';
 	var path = url.parse(request.url).pathname;
 	var pagePath = sourcePath + '\\pages';
 	var cssPath = sourcePath + '\\css';
 	var jsPath = sourcePath + '\\js';
 	var serverPath = sourcePath + '\\server';
+	var dataFilePath = sourcePath + '\\datafile';
 
 	switch (path) {
 		case '/':
@@ -30,8 +33,55 @@ var server = http.createServer(function (request, response) {
 		});
 			break;
 
+		case '/saveregistration':
+			let jsonString = ''
+
+			if (request.method == 'POST') {
+				jsonString = 'in new code';
+				var body = '';
+
+				request.on('data', function (data) {
+					jsonString = ' in on';
+					body += data;
+
+					if (body.length > 1e6)
+						request.connection.destroy();
+				});
+
+				request.on('end', function () {
+					 var newRegistration = qs.parse(body);
+
+					fs.readFile(dataFilePath + '\\registration.json',function (error, post) {
+
+						if (error) {
+							response.writeHead(404);
+							response.write(error);
+							response.end();
+						} else {
+							var registrationData = JSON.parse(post);
+							registrationData.push(newRegistration);
+							fs.writeFile(dataFilePath + "\\registration.json", JSON.stringify(registrationData), function (err) {
+								if (err) 
+								{
+									response.writeHead(404);
+									response.write(err);
+									response.end();
+								}
+								else{
+									response.writeHead(200, { 'Content-Type': 'text' });
+									response.write('Registrtion saved successfully');
+									response.end();
+								}								
+							  });
+						}
+
+					});
+				});
+			}
+			break;
+
 		case '/registration.html':
-			fs.readFile(pagePath  + path, function (error, data) {
+			fs.readFile(pagePath + path, function (error, data) {
 				if (error) {
 					response.writeHead(404);
 					response.write(error);
@@ -44,7 +94,7 @@ var server = http.createServer(function (request, response) {
 			});
 			break;
 
-			case '/test.html':
+		case '/test.html':
 			fs.readFile(__dirname + path, function (error, data) {
 				if (error) {
 					response.writeHead(404);
@@ -52,13 +102,13 @@ var server = http.createServer(function (request, response) {
 					response.end();
 				} else {
 					response.writeHead(200, { 'Content-Type': 'text/html' });
-					response.write( path + "-" + pagepath+"----"+__dirname);
+					response.write(path + "-" + pagePath + "----" + __dirname);
 					response.end();
 				}
 			});
 			break;
 
-			case '/registration.js':
+		case '/registration.js':
 			fs.readFile(jsPath + path, function (error, data) {
 				if (error) {
 					response.writeHead(404);
@@ -71,6 +121,7 @@ var server = http.createServer(function (request, response) {
 				}
 			});
 			break;
+			
 		default:
 			response.writeHead(404);
 			response.write("opps this doesn't exist - 404");
@@ -80,5 +131,3 @@ var server = http.createServer(function (request, response) {
 });
 
 server.listen(8082);
-
-
