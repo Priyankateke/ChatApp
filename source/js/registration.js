@@ -4,7 +4,6 @@
  * Validate User Details
  */
 function validation() {
-    debugger;
 
     //get element
     var username = document.getElementById("txtUserName");
@@ -57,6 +56,8 @@ function validation() {
     //Save data to json file end
 
 }
+
+//show snavkbar
 function myFunction(msg) {
     var x = document.getElementById("snackbar");
     x.className = "show";

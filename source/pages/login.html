@@ -3,8 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="login-page.css">
-    <script src="login-page.js"></script>
+    <link rel="stylesheet" href="registration.css">
+    <script src="login.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -12,27 +12,28 @@
 </head>
 
 <body>
+</br>
+<div class="container" style="width: 40%;    background-color: #65bdbd;    color: #FFF;">
+        <h3 class="text-center" >Login</h3>
+        <form>
+            <div form-group class="form-group row">
+                <label for="usrname" class="col-sm-4 col-form-label text-right">Username</label>
+                <input type="text" class="col-sm-6" id="txtUserName" name="username" required>
+            </div>
+            <div class="form-group row">
 
-    <div class="container">
-        <h3>Login</h3>
-        <p id="demo">json data</p>
-        <form action="/action_page.php">
-
-            <div>
-                <label for="usrname">Username</label>
-                <input type="text" id="txtUserName" name="username" required>
-
-                <label for="psw">Password</label>
-                <input type="password" id="txtPassword" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                <label class="col-sm-4 col-form-label text-right" for="psw">Password</label>
+                <input class="col-sm-6" type="password" id="txtPassword" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     required>
             </div>
             </br>
             <div class="text-center">
-                <button type="button" class="btn btn-danger" value="" onClick="saveData()">Submit</button>
+                <button type="button" class="btn btn-danger" value="" onclick="userLogin()">Login</button>
             </div>
         </form>
     </div>
-
+    <div id="snackbar">Some text some message..</div>
+    </div>
 </body>
 
 </html>
