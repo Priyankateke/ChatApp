@@ -1,10 +1,18 @@
 //required modules
+
+//http built-in module : which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
 var http = require('http');
+
+//url: The URL module splits up a web address into readable parts. with the url.parse() method
 var url = require('url');
+
+//fs: allows us to work with the file system on your computer. 
 var fs = require('fs');
+
+//qs: Query String module provides a way of parsing the URL query string.
 var qs = require('querystring');
 
-//Create Server
+//createServer() : to create an HTTP server:
 var server = http.createServer(function (request, response) {
 	//File Path
 	var sourcePath = 'D:\\Priyanka DT\\Office\\Task\\Source\\ChatApp\\source';
@@ -18,7 +26,12 @@ var server = http.createServer(function (request, response) {
 
 	switch (path) {
 		case '/':
+
+			//writeHead() If the response from the HTTP server is supposed to be displayed as HTML,
+			//(200, { 'Content-Type': 'text/plain' }) :1.all is OK the, 2.object containing the response headers.
 			response.writeHead(200, { 'Content-Type': 'text/plain' });
+
+			//display as HTML
 			response.write("This is Test Message.");
 			response.end();
 			break;
@@ -133,7 +146,7 @@ var server = http.createServer(function (request, response) {
 							//iterating data
 							for (var i = 0; i < loginData.length; i++) {
 
-								//if 
+								//compare login credential 
 								if (loginData[i].UserName == userCredentials.UserName) {
 									if (loginData[i].Password == userCredentials.Password) {
 										message = "Valid User";

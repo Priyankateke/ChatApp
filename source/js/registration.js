@@ -39,18 +39,27 @@ function validation() {
     console.log(registrationData);
 
     $.ajax({
+        //url:Specifies the URL to send the request to. Default is the current page
         url: "http://localhost:8082/saveregistration",
+
+        //A function to be run when the request succeeds
         success: function (result) {
             myFunction(result);
         },
+
+        //error: A function to run if the request fails.
         error: function (a, b, c) {
             debugger;
             myFunction('Error');
         },
 
+        //type: Specifies the type of request. (GET or POST)
         type: 'post',
 
+        //contentType: used when sending data to the server. 
         contentType: 'application/json',
+
+        //data:Specifies data to be sent to the server
         data: registrationData
     });
     //Save data to json file end
