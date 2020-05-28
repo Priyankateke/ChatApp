@@ -26,6 +26,10 @@ function userLogin() {
         url: "http://localhost:8082/checkForLogin",
         success: function (result) {
             invalidLoginData(result);
+            if(result == "Valid User")
+            {
+                window.location.href = 'http://localhost:8082/chatpage.html';  
+            }
         },
         error: function (a, b, c) {
             debugger;
@@ -38,6 +42,7 @@ function userLogin() {
         data: loginData
     });
 
+    //displaying snackbar if invalid login
     function invalidLoginData(msg) {
         var x = document.getElementById("snackbar");
         x.className = "show";

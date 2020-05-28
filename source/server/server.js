@@ -14,12 +14,19 @@ var server = http.createServer(function (request, response) {
 	var jsPath = sourcePath + '\\js';
 	var serverPath = sourcePath + '\\server';
 	var dataFilePath = sourcePath + '\\datafile';
+	var imgagePath = sourcePath + '\\image';
 
 	switch (path) {
 		case '/':
 			response.writeHead(200, { 'Content-Type': 'text/plain' });
 			response.write("This is Test Message.");
 			response.end();
+			break;
+
+		case '/user-profile.png':
+			var img = fs.readFileSync(imgagePath + path);
+			response.writeHead(200, {'Content-Type': 'image/gif' });
+			response.end(img, 'binary');
 			break;
 
 		case '/chat.css':

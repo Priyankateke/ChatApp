@@ -12,9 +12,9 @@
 </head>
 
 <body>
-</br>
-<div class="container" style="width: 40%;    background-color: #65bdbd;    color: #FFF;">
-        <h3 class="text-center" >Login</h3>
+    </br>
+    <div class="container" style="width: 40%;    background-color: #65bdbd;    color: #FFF;">
+        <h3 class="text-center">Login</h3>
         <form>
             <div form-group class="form-group row">
                 <label for="usrname" class="col-sm-4 col-form-label text-right">Username</label>
@@ -23,12 +23,16 @@
             <div class="form-group row">
 
                 <label class="col-sm-4 col-form-label text-right" for="psw">Password</label>
-                <input class="col-sm-6" type="password" id="txtPassword" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    required>
+                <input class="col-sm-6" type="password" id="txtPassword" name="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
             </br>
             <div class="text-center">
                 <button type="button" class="btn btn-danger" value="" onclick="userLogin()">Login</button>
+            </div>
+            </br>
+            <div class="signin" style="background-color: transparent;  text-align: center;">
+                <p>Dont have an account? <a href="registration.html">Create account.</a></p>
             </div>
         </form>
     </div>
